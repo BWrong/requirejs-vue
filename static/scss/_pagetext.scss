@@ -1,0 +1,234 @@
+// 内容样式
+// 标题
+h1 {
+  font-size: 2.2rem;
+  color: $theme;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  margin: 10px auto;
+  padding: 0 0 0 40px;
+  position: relative;
+  font-weight: bold;
+  background: url(../img/h1.png) left 10px no-repeat;
+}
+
+h2 {
+  color: #FF6000;
+  font-size: 2rem;
+  margin: 10px auto;
+  line-height: 1.8;
+  position: relative;
+  padding-left: 30px;
+  font-weight: bold;
+  background: url(../img/h2.png) left 10px no-repeat;
+}
+
+h3 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: $theme;
+  margin: 15px auto;
+  padding-left: 25px;
+  line-height: 1.5;
+  background: url(../img/h3.png) left 6px no-repeat;
+}
+h4 {
+  font-size: 1.6rem;
+  color: #FF6000;
+  font-weight: normal;
+  margin: 10px auto;
+  position: relative;
+  &:before{
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border: 1px solid #FF6000;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+}
+img {
+  max-width: 100%;
+}
+p {
+  font-size: 1.6rem;
+  color: #333;
+  line-height: 1.8;
+  margin: 5px 0;
+  text-indent: 2em;
+  &.center {
+    text-align: center;
+    text-indent: 0;
+  }
+}
+
+/* 表格 */
+.table{
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px auto;
+  position: relative;
+}
+table {
+  width: 96%;
+  min-width: 600px;
+  table-layout: fixed;
+  margin: 20px auto;
+  border-collapse: collapse;
+  p {
+    margin: 0;
+  }
+  th {
+    font-weight: normal;
+    background: lighten($color: $theme, $amount: 52);
+    border: 1px solid $theme;
+    line-height: 36px;
+    padding: 5px;
+    color: $theme;
+    font-size: 1.8rem;
+    p {
+      color: $theme;
+      font-size: 1.8rem;
+      padding: 5px;
+    }
+  }
+  td {
+    border: 1px solid $theme;
+    line-height: 40px;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #444444;
+    padding: 5px;
+  }
+}
+
+// pdf
+.c-pdf {
+  min-height: 600px;
+  width: 100%;
+}
+
+// 图片样式
+.yn-img-wrap {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid $theme;
+  margin: 10px auto;
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  .yn-img-title {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 1.6rem;
+    color: $theme;
+  }
+}
+
+// 视频
+video {
+  width: 100%;
+}
+.yn-video-wrap {
+  position: relative;
+  margin: 20px auto;
+  max-width: 1044px;
+  border-radius: 4px;
+  .yn-video{
+    border-style: solid;
+    border-color: $theme;
+    border-top-width: 6px;
+    border-left-width: 6px;
+    border-right-width: 12px;
+    border-bottom-width: 12px;
+    border-radius: 6px;
+    box-shadow: 6px 6px 0 6px darken($color: $theme, $amount: 14) inset;
+    padding: 6px 0 0 6px;
+  }
+  .yn-video-title {
+    text-align: center;
+    height: 42px;
+    line-height: 42px;
+    font-size: 1.8rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: $theme;
+  }
+}
+
+// 分页样式
+.pagination-wrap {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0;
+
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+    width: 0;
+    height: 0;
+    clear: both;
+  }
+
+  .pagination-control {
+    margin: 20px auto;
+    text-align: center;
+    a {
+      font-size: 1.4rem;
+      display: inline-block;
+      min-width: 32px;
+      height: 32px;
+      text-align: center;
+      line-height: 32px;
+      color: #222;
+      margin: 0 3px;
+      transition: all 0.5s ease;
+      position: relative;
+      border: 1px solid #DDDDDD;
+      white-space: none;
+      cursor: pointer;
+      padding: 0 10px;
+      box-sizing: border-box;
+      border-radius: 2px;
+
+      &.pagination-active,
+      &:hover {
+        color: #fff;
+        background-color: $theme;
+        border-color: $theme;
+        &.pagination-prev,
+        &.pagination-next {
+          background-color: darken($theme, 20%);
+          border-color: darken($theme, 20%);
+        }
+      }
+
+      &.pagination-active {
+        cursor: default;
+      }
+    }
+
+    .pagination-prev,
+    .pagination-next {
+      width: auto;
+      padding: 0 10px;
+    }
+
+    .pagination-disabled {
+      background: #eee;
+      color: #999999;
+      cursor: not-allowed;
+      &:hover {
+        color: #999999;
+        background: #eee !important;
+        border: 1px solid #DDDDDD !important;
+      }
+    }
+  }
+}

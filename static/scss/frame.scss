@@ -1,0 +1,115 @@
+@import './variable';
+@import './mixin';
+@import '../../components/cus-search/index.scss';
+.frame-page{
+  &.scos{
+    background: url(../img/frame/bg.jpg) center bottom no-repeat;
+  }
+}
+// frame-banner
+.frame-banner {
+  position: relative;
+  background: url(../img/frame/frame_banner.jpg) center top no-repeat;
+  background-size: auto 100%;
+  .content-box{
+    height: 300px;
+  }
+  .course-name{
+    width: 540px;
+    text-align: center;
+    position: absolute;
+    left: 160px;
+    top: 70px;
+    .search{
+      margin-top: 20px;
+    }
+  }
+}
+.frame-content {
+  min-height: 300px;
+  padding-bottom: 30px;
+}
+// 页面标题
+.frame-page-title {
+  font-size: 2.2rem;
+  text-align: center;
+  line-height: 2;
+  padding: 10px 0;
+  span {
+    display: inline-block;
+    position: relative;
+    color: $theme;
+    font-weight: bold;
+    font-size: 2.8rem;
+    padding: 0 80px;
+    background: url(../img/frame/frame_title.png) 0 center no-repeat;
+    &:before{
+      width: 70px;
+      height: 28px;
+      content: '';
+      background-repeat: no-repeat;
+      background-image: url(../img/frame/frame_title.png);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:before{
+      right: 0;
+      transform: translateY(-50%) rotateY(180deg);
+    }
+    &:after{
+      content: "";
+      width: 42px;
+      height: 3px;
+      background: $hover;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      margin-left: -21px;
+    }
+  }
+}
+
+.frame-main {
+  width: 98%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 30px;
+}
+// 加载积件样式
+@import './scos.scss';
+
+@media (max-width:1199px){
+  .frame-banner .course-name{
+    left: 60px;
+  }
+  .frame-banner.scos-banner{
+    margin-top: 51px;
+  }
+}
+@media (max-width: 1024px) {
+  .frame-banner .content-box{
+    height: 200px;
+  }
+  .frame-banner .course-name{
+    width: 260px;
+    left: 140px;
+    top: 50px;
+  }
+}
+@media (max-width: 767px) {
+  .frame-banner .course-name{
+    left: 60px;
+  }
+}
+@media (max-width: 639px) {
+
+}
+@media (max-width: 479px) {
+  .frame-banner .course-name{
+    position: static;
+    margin: 0 auto;
+    padding-top: 50px;
+
+  }
+}

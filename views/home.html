@@ -1,0 +1,43 @@
+<div class="home-page">
+    <div class="banner">
+        <swiper :options="swiperOption" class="home-banner">
+            <swiper-slide v-for="(item, index) in 3" :key="index">
+                <img :src="'assets/img/home/banner0'+index+'.jpg'">
+            </swiper-slide>
+        </swiper>
+        <div class="swiper-pagination" v-if="!$isMobile"></div>
+    </div>
+    <div class="home-link content-box">
+        <div class="link-list">
+            <router-link to="/source/jxsp">
+                <img src="assets/img/home/01.png">
+                <div class="txt">
+                    <div class="title">教学视频</div>
+                    <span>见微知著，小课堂大教学</span>
+                </div>
+            </router-link>
+            <router-link to="/scos/list">
+                <img src="assets/img/home/02.png">
+                <div class="txt">
+                    <div class="title">课程学习</div>
+                    <span>电子教材，学习系统化</span>
+                </div>
+            </router-link>
+            <router-link to="/teacher">
+                <img src="assets/img/home/03.png">
+                <div class="txt">
+                    <div class="title">教学团队</div>
+                    <span>严谨务实，通力合作</span>
+                </div>
+            </router-link>
+        </div>
+    </div>
+    <div class="course-introduction">
+        <div class="content-box">
+            <div class="title"><span class="en">Course introduction</span><span class="zh">课程介绍</span> </div>
+            <p>《解剖学基础》是中等职业学校护理专业的一门专业主干课程。本课程是研究正常人体形态、结构及发生发育规律的一门课程，包括解剖学和组织胚胎学。主要内容为正常组织结构，各系统器官的组成、位置、形态等。</p>
+            <p>本课程的任务是着手培养护理专业实用型人才，注重对学生实践能力的培养，介绍护理专业所应掌握的人体形态结构和器官、系统主要功能的基本知识，基本理论和基本技能，为进一步学习后续的医学基础课程和临床医学课程奠定基础。为其职业生涯发展和终身学习奠定基础，提升医学素养，培养学生成为一名合格的护理工作者。<router-link to="/kcgk/kcjs">&lt;查看详情&gt;</router-link>
+            </p>
+        </div>
+    </div>
+</div>

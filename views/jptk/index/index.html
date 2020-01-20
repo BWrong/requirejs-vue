@@ -1,0 +1,12 @@
+<div class="frame-main">
+    <c-page-container>
+        <c-page-item v-for="page in totalPage" :key="page">
+            <ul class="list-image clearfloat" v-viewer>
+                <li class="animated zoomIn" v-for="(item, index) in getNowPageList(page)" :key="index">
+                    <img :src="prefix+(index+1)+'.jpg'" :alt="item">
+                    <span class="title">{{item}}</span>
+                </li>
+            </ul>
+        </c-page-item>
+    </c-page-container>
+</div>

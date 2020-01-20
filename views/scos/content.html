@@ -1,0 +1,61 @@
+<div class="scos-content">
+    <!-- 移动端导航 -->
+    <div class="scos-nav" v-if="$isMobile">
+        <div class="scos-nav-toggle" @click="toggle">
+            <span>请选择您要学习的内容</span>
+        </div>
+        <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">
+            <div class="scos-list" v-show="isShowNav">
+                <ul class="scos-list-chapter">
+                    <li v-for="(item, index) in nav" :key="index"
+                        :class="{active:index===chapterIndex,open:index === showIndex}">
+                        <a @click="chang(index)">{{item.chapterTitle.split(' ')[0]}}</a>
+                    </li>
+                </ul>
+                <ul class="scos-list-child">
+                    <template v-for="(item, index) in navChildren">
+                        <!-- 三级结构 -->
+                        <template v-if="item.ware">
+                            <div class="scos-list-section" :key="index">{{item.sectionTitle}}</div>
+                            <router-link tag="li"  v-for="(subitem, subindex) in item.ware" :key="index+'-'+subindex" :to="creatUrl(subindex,index)" exact @click.native="toggle">
+                                <a>{{subitem.wareTitle}}</a>
+                            </router-link>
+                        </template>
+                        <template v-else>
+                            <router-link tag="li" :to="creatUrl(index)" exact :key="index" @click.native="toggle">
+                                <a>{{item.wareTitle}}</a>
+                            </router-link>
+                        </template>
+                    </template>
+                </ul>
+            </div>
+        </transition>
+    </div>
+    <!-- 面包屑 -->
+    <div class="ware-bread">
+        <div class="content-box">
+        <router-link :to="chapter.href" class="back parent">
+            {{$isMobile?chapter.chapterTitle.split(' ')[0]:chapter.chapterTitle}}</router-link>
+        <template v-if="section && !$isMobile">
+            <span class="parent">{{section.sectionTitle}}</span>
+        </template>
+        <span class="now">{{$isMobile?ware.wareTitle.split(' ')[0]:ware.wareTitle}}</span></div>
+    </div>
+    <!-- 知识点内容容器 -->
+    <div class="ware-container content-box">
+        <div class="ware-title"><span>{{ware.wareTitle}}</span></div>
+        <div class="ware-content" v-html="content"  v-cloak><span class="ware-loading"></span></div>
+    </div>
+    <!-- 快速跳转链接 -->
+    <div class="ware-neighbor content-box">
+        <router-link class="neighbor-prev" :to="prev.href">{{prev.prefix}}{{prev.title}}</router-link>
+        <router-link class="neighbor-next" :to="next.href">{{next.prefix}}{{next.title}}</router-link>
+    </div>
+    <!-- 浮动导航 -->
+    <div class="ware-quicklink animated slideInRight" v-if="!$isMobile">
+        <router-link :to="chapter.href" class="ware-quicklink-title">返回目录</router-link>
+        <div class="ware-quicklink-list" v-if="wareList.length">
+            <router-link :to="item.href" v-for="(item, index) in wareList" exact :key="index" :title="item.title">{{item.title.split(' ')[0]}}</router-link>
+        </div>
+    </div>
+</div>

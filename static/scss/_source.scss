@@ -1,0 +1,199 @@
+@import './variable';
+@import './mixin';
+// 视频微课
+.list-video {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    width: 27.33333333%;
+    position: relative;
+    border: 1px solid #d8d9db;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 3% 3% 3%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 10px 2px #d8d9db;
+    .thumb {
+      display: block;
+      max-width: 100%;
+      height: 160px;
+      overflow: hidden;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+    .title {
+      @include text-overflow;
+      font-size: 1.8rem;
+      color: #666;
+      margin: 15px auto 0 auto;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+    .play-btn {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      width: 66px;
+      height: 66px;
+      transform: translate(-50%, -50%);
+      transition: all 0.5s ease;
+    }
+    &:hover {
+      border-color: $theme;
+      .title {
+        color: $theme;
+      }
+    }
+  }
+}
+// 课堂实录
+.tab-frame {
+  max-width: 1024px;
+  margin: 20px auto;
+  .tab-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    margin: 0 auto 20px auto;
+    li {
+      color: #333;
+      font-size: 1.8rem;
+      width: 50%;
+      line-height: 40px;
+      height: 40px;
+      cursor: pointer;
+      position: relative;
+      padding: 0 10px;
+      margin: 0 30px;
+      text-align: center;
+      background: #ebebeb;
+      transition: all 0.5s ease;
+      &.active,
+      &:hover {
+        background: $theme;
+        color: #fff;
+      }
+    }
+  }
+  .tab-content {
+    embed {
+      width: 100%;
+    }
+  }
+}
+// 多媒体课件
+.chapter {
+  .section-list {
+    li {
+      .section-title {
+        border-bottom: 2px solid #e9e9e9;
+        color: #333;
+        font-size: 1.8rem;
+        position: relative;
+        padding: 10px 200px 10px 40px;
+        margin-bottom: 20px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        .show-btn,
+        .download-btn {
+          display: inline-block;
+          position: absolute;
+          padding-left: 25px;
+          font-size: 1.4rem;
+          cursor: pointer;
+          top: 10px;
+        }
+        .show-btn {
+          right: 80px;
+          background: url(../img/global/show.png) left center no-repeat;
+        }
+        .download-btn {
+          right: 0;
+          background: url(../img/global/download.png) 5px center no-repeat;
+        }
+      }
+      &:hover {
+        .section-title {
+          color: $theme;
+          border-bottom: 2px solid$theme;
+          .show-btn {
+            color: $theme;
+            background: url(../img/global/show_active.png) left center no-repeat;
+          }
+          .download-btn {
+            color: $theme;
+            background: url(../img/global/download_active.png) 5px center
+              no-repeat;
+          }
+        }
+      }
+    }
+    &.ppt li .section-title {
+      background: url(../img/global/ppt.png) left center no-repeat;
+    }
+    &.word li .section-title {
+      background: url(../img/global/word.png) left center no-repeat;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .list-video li {
+    width: 44%;
+  }
+  .list-video li .thumb {
+    height: 180px;
+  }
+  .list-animation li {
+    width: 44%;
+    padding: 10px;
+  }
+  .tab-frame .tab-btn li {
+    border-bottom: none;
+    padding: 0 5px;
+    margin: 0 10px;
+    @include text-overflow;
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .list-video li {
+    background: none;
+  }
+  .list-video li .thumb {
+    height: 160px;
+  }
+  .list-animation li .thumb {
+    height: 160px;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .list-video li .thumb {
+    height: 140px;
+  }
+  .list-animation li .thumb {
+    height: 140px;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .list-video li .thumb {
+    height: 110px;
+  }
+  .list-animation li .thumb {
+    height: 110px;
+  }
+}

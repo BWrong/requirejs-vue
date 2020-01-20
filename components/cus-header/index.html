@@ -1,0 +1,29 @@
+<header class="header">
+    <div class="content-box">
+        <router-link to="/home" class="logo">
+            <img src="assets/img/logo.png" />
+        </router-link>
+        <div class="header-nav-btn" id="J_openNav" v-if="$isMobile" @click="toggle">菜单</div>
+        <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">
+            <nav class="header-nav" v-show="isOpen||!$isMobile">
+                <ul class="header-nav-bar">
+                    <template v-for="(item, index) in nav">
+                        <li :key="index"
+                        v-if="item.title"
+                        :class="{active:item.path===rootPath,open:index === showIndex}">
+                        <a @click="chang($event,item,index)">{{item.title}}</a>
+                        <template v-if="(item.children && item.children.length)">
+                            <ul v-if="!$isMobile || isShow(index,item)">
+                                <router-link tag="li" :to="subitem.fullPath" :key="subindex"
+                                    v-for="(subitem,subindex) in item.children" @click.native="toggle">
+                                    <a>{{subitem.title}}</a>
+                                </router-link>
+                            </ul>
+                        </template>
+                    </li>
+                    </template>
+                </ul>
+            </nav>
+        </transition>
+    </div>
+</header>

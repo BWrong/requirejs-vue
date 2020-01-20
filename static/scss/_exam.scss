@@ -1,0 +1,61 @@
+// 试题样式
+.c-exam-page {
+  .c-exam-type {
+    span {
+      font-size: 1.8rem;
+      padding-left: 40px;
+      background: url(../img/exam/question_type_icon.png) no-repeat left center;
+      padding-bottom: 10px;
+      color: $theme;
+    }
+  }
+  // 试题题干
+  .c-exam-item {
+    .c-question-title {
+      background: url(../img/exam/question_ico.png) 0 0.5em no-repeat;
+      padding-left: 25px;
+    }
+  }
+  .c-exam-input {
+    padding: 5px;
+    color: $theme;
+  }
+  .c-question-options dt {
+    .c-option-prefix {
+      background: #fff;
+      border: 1px solid #3e3e3e;
+      border-radius: 50%;
+      text-align: center;
+    }
+    &.active {
+      color: $theme;
+      .c-option-prefix {
+        border: 1px solid $theme;
+        background: $theme;
+      }
+    }
+  }
+  .c-question-analysis {
+    background: url(../img/exam/question_tips.png) left 3px no-repeat;
+    padding-left: 25px;
+    color: #fa921b;
+  }
+  .c-question-tips {
+    &.c-question-success {
+      background: url(../img/exam/question_answer.png) left 3px no-repeat;
+      color: #26a41c;
+      padding-left: 25px;
+    }
+    &.c-question-error {
+      background: url(../img/exam/question_false.png) left 3px no-repeat;
+      color: #ff3535;
+      padding-left: 25px;
+    }
+    &.c-question-unkown {
+      color: gray;
+    }
+  }
+  .c-exam-btn button{
+      background: $theme;
+  }
+}

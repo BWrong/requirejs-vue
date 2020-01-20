@@ -1,0 +1,15 @@
+<div class="frame-main">
+    <c-page-container>
+        <c-page-item v-for="page in totalPage" :key="page">
+            <ul class="list-video clearfloat">
+                <li class="animated zoomIn" v-for="(item, index) in getNowPageList(page)" :key="index" @click="$playVideo(item.path,item.title)" >
+                    <div class="thumb">
+                        <img :src="item.thumb" :alt="item.title">
+                    </div>
+                    <div class="title">{{item.title}}</div>
+                    <img class="play-btn" src="./assets/img/play_btn.png">
+                </li>
+            </ul>
+        </c-page-item>
+    </c-page-container>
+</div>

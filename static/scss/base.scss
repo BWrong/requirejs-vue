@@ -1,0 +1,118 @@
+@import "./normalize";
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+    font-size: 10px;/*10/16*100% = 62.5%*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+    position: relative;
+    background: #FFF;
+    font-family: "Microsoft YaHei", Arial, sans-serif, "Segoe UI", "Lucida Grande", Helvetica;
+    color: #333;
+    max-width: 1920px;
+    min-width: 320px;
+    width: 100%
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+/* 去掉列表前的标识, li 会继承 */
+ol, ul {
+    list-style: none;
+}
+
+iframe{
+    border: none;
+}
+/* 默认不显示下划线，保持页面简洁 */
+ins, a {
+    color: #000;
+    text-decoration: none;
+    outline: none;
+}
+textarea{
+    border: 1px solid #C3C8D6;
+}
+// 防止Vue渲染闪动
+[v-cloak] {
+    display: none
+}
+/* 单行文字溢出时出现省略号，需设定宽度 */
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*浮动*/
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+/*清除浮动*/
+.clearfloat:after,
+.clearfloat:before{
+    content: " ";
+    display: table;
+    width: 0;
+    height: 0;
+    clear: both;
+}
+/*居中*/
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*隐藏文字*/
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+// 内容
+.content-box{
+    width: 98%;
+    max-width: 1180px;
+    margin: 0 auto;
+    position: relative;
+}
+//
+.hand{
+    cursor: pointer;
+}
+.nohand{
+    cursor: default;
+}
+@media only screen and (width:768px) and (orientation:portrait) {
+    html {
+        font-size: 12px
+    }
+}
+
+@media only screen and (max-width:767px) {
+    html {
+        font-size: 12px
+    }
+}
+
+@media only screen and (max-width:639px) {
+    html {
+        font-size: 13px
+    }
+}
+
+@media only screen and (max-width:479px) {
+    html {
+        font-size: 10px
+    }
+}

@@ -1,0 +1,24 @@
+<div class="frame-page" :class="{scos:$route.path.match(/scos/)}">
+    <!-- banner -->
+    <div class="frame-banner" :class="{'scos-banner':$route.path.match(/content/)}">
+        <div class="content-box">
+            <div class="course-name">
+                <img src="./assets/img/frame/course_name.png" class="frame-banner-img animated zoomIn">
+                <cus-search v-if="isScos"  ref="search"  class="animated bounceIn"></cus-search>
+            </div>
+        </div>
+    </div>
+    <!-- 内容 -->
+    <div class="frame-content">
+        <!-- 当前模块名称 -->
+        <div v-if="$route.meta.title" class="frame-page-title content-box"><span>{{$route.meta.title}}</span>
+        </div>
+        <!-- 二级路由容器 -->
+        <!-- <keep-alive> -->
+        <transition enter-active-class="animated fadeIn" :duration="{enter:200,leave:50}" mode="out-in"
+            leave-active-class="animated fadeOut">
+            <router-view></router-view>
+        </transition>
+        <!-- </keep-alive> -->
+    </div>
+</div>
