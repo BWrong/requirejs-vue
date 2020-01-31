@@ -1,0 +1,9 @@
+.header{
+  text-align: center;
+  margin: 20px auto;
+  font-size: 20px;
+}
+.header a{
+  display: inline-block;
+  margin: 0 10px;
+}
